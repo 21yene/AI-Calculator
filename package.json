@@ -1,0 +1,11 @@
+{
+  "name": "abraham",
+  "version": "1.0.0",
+  "description": "Simple calculator",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run"
+  },
+  "author": "Abraham mekuria",
+  "license": "MIT"
+}
