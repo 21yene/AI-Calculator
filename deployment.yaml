@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-practice
+spec:
+  selector:
+    app: ai-test-app
+  ports:
+  - protocol: "TCP"
+    port: 3000
+    targetPort: 3000
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-test-app
+spec:
+  selector:
+    matchLabels:
+      app: ai-test-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ai-test-app
+    spec:
+      containers:
+      - name: ai-test-app
+        image: abrahammekuria/ai
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+        
